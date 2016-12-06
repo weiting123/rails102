@@ -8,8 +8,19 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  # 浏览
   def show
-    @group=Group.find(params[:id])
+    @group = Group.find(params[:id])
+  end
+
+  # 修改
+  def edit
+    @group = Group.find(params[:id])
+  end
+  def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    redirect_to groups_path, notice: "Update Success"
   end
 
   # 新增
