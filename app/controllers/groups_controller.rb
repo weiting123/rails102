@@ -17,6 +17,7 @@ class GroupsController < ApplicationController
   # 浏览
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts.recent
   end
 
   # 修改
@@ -46,7 +47,7 @@ class GroupsController < ApplicationController
 
   # 删除
   def destroy
-    
+
     @group.destroy
     flash[:alert] = "Group deleted"
     redirect_to groups_path
