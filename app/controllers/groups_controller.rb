@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
   # 浏览
   def show
     @group = Group.find(params[:id])
-    @posts = @group.posts.recent.paginte(:page => params[:page], :per_page => 5)
+    @posts = @group.posts.recent.paginate(:page => params[:page], :per_page => 5)
   end
 
   # 修改
